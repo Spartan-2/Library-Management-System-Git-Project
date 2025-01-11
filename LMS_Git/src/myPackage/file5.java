@@ -1,3 +1,4 @@
+//importing the libraries
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -37,7 +38,7 @@ setVisible(true);
     private void loadReceipts() {
         try (Connection conn = myclass.getConnection();
              Statement stmt = conn.createStatement();
-ResultSetrs = stmt.executeQuery("SELECT * FROM receipts")) {
+ResultSetrs = stmt.executeQuery("SELECT * FROM receipts")) {//result set
 
             while (rs.next()) {
 tableModel.addRow(new Object[]{
