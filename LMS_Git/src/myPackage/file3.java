@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 package myPackage;
+=======
+>>>>>>> 3f88e18ade889e886b3582ee4e2076164dea8c28
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -6,12 +9,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
+<<<<<<< HEAD
 public class file3 extends JFrame {
+=======
+public class staffframe extends JFrame {
+>>>>>>> 3f88e18ade889e886b3582ee4e2076164dea8c28
     private JTable booksTable;
     private DefaultTableModel tableModel;
     private JTextField titleField, authorField, priceField, stockField, bookIdField;
 
+<<<<<<< HEAD
     public file3() {
+=======
+    public staffframe() {
+>>>>>>> 3f88e18ade889e886b3582ee4e2076164dea8c28
         // Set up JFrame
         setTitle("Staff Panel");
         setSize(700, 400);
@@ -93,6 +104,7 @@ public class file3 extends JFrame {
         showReceiptsButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
                 new file5();  // Open ReceiptHistoryFrame when clicked
             }
         });
@@ -201,3 +213,8 @@ public class file3 extends JFrame {
 
 
 
+=======
+                new ReceiptHistoryFrame();  // Open ReceiptHistoryFrame when clicked
+            }
+        });
+>>>>>>> 3f88e18ade889e886b3582ee4e2076164dea8c28
