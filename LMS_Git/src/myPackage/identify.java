@@ -77,3 +77,58 @@ public class identify extends JFrame {
                 }
             }
         });
+        setVisible(true);
+    }
+    private boolean authenticateStaff(String username, String password) {
+        String query = "SELECT * FROM staff WHERE username = ? AND password = ?";
+
+        try (Connection conn = file1.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            return rs.next(); // If a record is found, authentication is successful
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // Authenticate Customer and retrieve their ID
+    private int authenticateCustomer(String username, String password) {
+        String query = "SELECT * FROM customers WHERE username = ? AND password = ?";
+
+        try (Connection conn = file1.getConnection();
+             PreparedStatement ps = conn.prepareStatement(query)) {
+            ps.setString(1, username);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+       
+                return rs.getInt("id"); // Return customer ID
+            } else {
+                return -1; // Invalid credentials
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1; // Return -1 in case of an error
+        }
+    }
+
+    // Open Customer Page and pass the customer ID
+    private void openCustomerPage(int customerId) {
+        new file4(customerId);  // Create an instance of CustomerFrame with customerId
+    }
+
+    // Open Staff Page
+    private void openStaffPage() {
+        new file3();  // Create an instance of StaffFrame
+    }
+
+    // Main Method
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new file2());
+    }
+}
